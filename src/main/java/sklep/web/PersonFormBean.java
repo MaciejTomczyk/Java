@@ -1,4 +1,4 @@
-package com.example.jsfdemo.web;
+package sklep.web;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -16,8 +16,9 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.example.jsfdemo.domain.Person;
-import com.example.jsfdemo.service.PersonManager;
+import sklep.project.*;
+import sklep.services.*;
+
 
 @SessionScoped
 @Named("personBean")
@@ -25,12 +26,12 @@ public class PersonFormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Person person = new Person();
+	Person person = new Person(null);
 
-	private ListDataModel<Person> persons = new ListDataModel<Person>();
+	ListDataModel<Person> persons = new ListDataModel<Person>();
 
 	@Inject
-	private PersonManager pm;
+	PersonDBManager personDBManager = new PersonDBManager();
 
 	public Person getPerson() {
 		return person;
@@ -39,25 +40,24 @@ public class PersonFormBean implements Serializable {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-
+	
+	public String addPerson() {
+		personDBManager.addPerson(person);
+		return "showPersons";
+	}
+		
 	public ListDataModel<Person> getAllPersons() {
-		persons.setWrappedData(pm.getAllPersons());
+		persons.setWrappedData(personDBManager.getAllPersons());
 		return persons;
 	}
 
-	// Actions
-	public String addPerson() {
-		pm.addPerson(person);
-		return "showPersons";
-		//return null;
-	}
 
-	public String deletePerson() {
+	public void deletePerson() {
 		Person personToDelete = persons.getRowData();
-		pm.deletePerson(personToDelete);
-		return null;
+		personDBManager.deletePerson(personDBManager.findPersonByName(personToDelete.getName()));
 	}
 
+/*
 	// Validators
 
 	// Business logic validation
@@ -102,4 +102,6 @@ public class PersonFormBean implements Serializable {
 			}
 		}
 	}
+*/
+
 }

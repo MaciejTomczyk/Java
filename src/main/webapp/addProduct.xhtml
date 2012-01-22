@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="productForm">
+            
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.productNameLabel}" />
+				<h:inputText id="name" value="#{productBean.product.name}" required="#{true}">
+ 					<f:validator validatorId="productNameValidator" /> 
+				</h:inputText>
+
+				<h:outputText value="#{msg.productAlcTypeLabel}" />
+				<h:selectOneMenu id="AlcTypeString" value="#{productBean.product.alcTypeString}">
+				  <f:selectItem id="Beer" itemLabel="Beer" itemValue="Beer" />
+				  <f:selectItem id="Brandy" itemLabel="Brandy" itemValue="Brandy" />
+				  <f:selectItem id="Liqueur" itemLabel="Liqueur" itemValue="Liqueur" />
+				  <f:selectItem id="Vodka" itemLabel="Vodka" itemValue="Vodka" />
+				  <f:selectItem id="Whiskey" itemLabel="Whiskey" itemValue="Whiskey" />
+				</h:selectOneMenu>
+
+
+				
+				<h:outputText value="#{msg.productReleaseYearLabel}" />
+				<h:inputText id="releaseYear" value="#{productBean.product.releaseYear}" required="#{true}" />
+
+				<h:outputText value="#{msg.productPriceLabel}" />
+				<h:inputText id="price" value="#{productBean.product.price}" required="#{true}" />
+				
+
+
+			</h:panelGrid>
+			
+			<h:commandButton value="#{msg.productFormOKButton}"
+				action="#{productBean.addProduct}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

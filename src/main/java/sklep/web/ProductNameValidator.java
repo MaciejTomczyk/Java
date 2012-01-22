@@ -1,4 +1,4 @@
-package com.example.jsfdemo.web;
+package sklep.web;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -7,19 +7,19 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("pinValidator")
-public class PinValidator implements Validator {
+@FacesValidator("productNameValidator")
+public class ProductNameValidator implements Validator {
 
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value)
 			throws ValidatorException {
 		
-		String pesel = (String) value;
+		String name = (String) value;
 		
-		if (pesel.length() != 4) {
+		if (name.length() < 1) {
 			FacesMessage message = new FacesMessage();
-			message.setDetail("PIN musi składać się z 4 cyfr");
-			message.setSummary("PIN musi składać się z 4 cyfr");
+			message.setDetail("Nazwa musi składać się z conajmniej 1 znaku");
+			message.setSummary("Nazwa musi składać się z conajmniej 1 znaku");
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(message);
 		}
