@@ -1,18 +1,20 @@
 body {
    margin: 0;
    padding: 0;
-   background-color:  lightGray;
+   background-color:  #FF9966;
    font-family: Verdana, sans-serif;
    font-size: 0.9em;
 }
 
 .heading {
-  padding: 10px;
+  padding: 15px;
   background: #FFFFFF;
-  border: 1px solid blue;
-  font-size: 1.4em;
+  border: 1px solid red;
+  font-size: 25px;
+  font-style: bold;
   font-style: italic;
-  font-family: Verdana;
+  font-style: undeline;
+  font-family: Comic Sans;
   text-align: center;
   height: 50px;
 }
@@ -23,14 +25,14 @@ body {
 }
 
 .menu {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 5px;
+  padding-left: 0px;
   padding-bottom: 20px;
-  border: thin solid blue;
+  border: thin solid red;
   position: absolute;
-  left: 10px;
+  left: 160px;
   height: 80%;
-  width: 200px;
+  width: 150px;
   background: #FFFFFF;
   top: 90px;
 }
@@ -39,11 +41,11 @@ body {
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
-  border: thin solid blue;
+  border: thin solid red;
   background: #FFFFFF;	
   position:absolute;
-  left: 225px; 
-  right: 65px;
+  left: 325px; 
+  right: 150px;
   top: 90px;
   height: 80%;
 }
