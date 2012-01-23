@@ -13,7 +13,8 @@ public class Person {
 	public Person(String name, Date dateOfBirth) {
 		this.name = name;
 		this.listOfProducts = new ArrayList<Product>();
-		this.dateOfBirth = dateOfBirth;
+		this.dateOfBirth 
+		= dateOfBirth;
 	}
 	
 	@Size(min = 1)
