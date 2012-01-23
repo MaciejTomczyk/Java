@@ -19,7 +19,9 @@
       
       <h:column>
         <f:facet name="header">#{msg.personDobLabel}</f:facet>
-        #{item.dateOfBirth}
+        <h:outputText value="#{item.dateOfBirth}">
+  			  <f:convertDateTime dateStyle="long"  type="date" />
+		</h:outputText>
       </h:column>
 
       <h:column>

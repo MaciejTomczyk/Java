@@ -16,10 +16,10 @@ public class ProductNameValidator implements Validator {
 		
 		String name = (String) value;
 		
-		if (name.length() < 1) {
+		if (name.length() < 2) {
 			FacesMessage message = new FacesMessage();
-			message.setDetail("Nazwa musi składać się z conajmniej 1 znaku");
-			message.setSummary("Nazwa musi składać się z conajmniej 1 znaku");
+			message.setDetail("Nazwa musi składać się z conajmniej 2 znaku");
+			message.setSummary("Nazwa musi składać się z conajmniej 2 znaku");
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(message);
 		}

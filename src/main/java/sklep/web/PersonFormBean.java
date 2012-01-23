@@ -26,7 +26,7 @@ public class PersonFormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	Person person = new Person(null);
+	Person person = new Person(null, null);
 
 	ListDataModel<Person> persons = new ListDataModel<Person>();
 

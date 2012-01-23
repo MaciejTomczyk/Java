@@ -8,9 +8,9 @@ public class Person {
 
 	String name;
 	List<Product> listOfProducts = new ArrayList<Product>();
-	Date dateOfBirth = new Date();
+	Date dateOfBirth;
 
-	public Person(String name) {
+	public Person(String name, Date dateOfBirth) {
 		this.name = name;
 		this.listOfProducts = new ArrayList<Product>();
 		this.dateOfBirth = dateOfBirth;
